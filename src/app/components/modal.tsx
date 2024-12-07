@@ -58,8 +58,8 @@ export default function PurchaseModal({ isOpen, onClose }:any) {
     {/* Conteúdo principal da Etapa 1 */}
     <div className="flex flex-col md:flex-row items-start gap-8">
       {/* Mapa de Assentos */}
-      <div className="flex-grow bg-black text-white flex items-center justify-center md:h-auto rounded-md">
-        Mapa de assentos
+      <div className="flex-grow bg-black text-white flex items-center justify-center md:h-auto rounded-md max-w-[50%]">
+        <img src="https://www.livepass.com.br/obj/media/BR-eventim/galery/kuenstler/i/ironmaiden-mapaportoes-livepass.jpg" alt="mapa assento" />
       </div>
 
       {/* Seleção de Setores */}
@@ -132,29 +132,97 @@ export default function PurchaseModal({ isOpen, onClose }:any) {
     
           {/* Conteúdo principal */}
           <div className="flex flex-col md:flex-row gap-8">
-            {/* Informações do comprador e detalhes do pedido */}
-            <div className="flex flex-col gap-4 flex-grow">
-              <div className="border rounded-md p-4">
-                <h2 className="font-bold text-lg mb-2">1. Informações do comprador</h2>
-                <p>Nome do comprador</p>
-                <p>email@exemplo.com</p>
-                <p>(48)99999-9999</p>
-              </div>
-              <div className="border rounded-md p-4">
-                <h2 className="font-bold text-lg mb-2">2. Detalhes do pedido</h2>
-                <p>Show teste - data/hora</p>
-                <p>1x Arquibancada - Inteira - R$ 59,90</p>
-                <p>1x Arquibancada - Meia - R$ 29,95</p>
-              </div>
-            </div>
-    
-            {/* Informações de pagamento */}
-            <div className="border rounded-md p-4 w-full md:w-1/2">
-              <h2 className="font-bold text-lg mb-2">Informações de pagamento</h2>
-              <p className="text-center text-gray-500">[Adicionar método de pagamento]</p>
-              {/* Você pode adicionar campos de formulário para entrada de dados aqui */}
-            </div>
-          </div>
+  {/* Informações do comprador e detalhes do pedido */}
+  <div className="flex flex-col gap-4 flex-grow">
+    <div className="border rounded-md p-4">
+      <h2 className="font-bold text-lg mb-2">1. Informações do comprador</h2>
+      <p>Nome do comprador</p>
+      <p>email@exemplo.com</p>
+      <p>(48)99999-9999</p>
+    </div>
+    <div className="border rounded-md p-4">
+      <h2 className="font-bold text-lg mb-2">2. Detalhes do pedido</h2>
+      <p>Show teste - data/hora</p>
+      <p>1x Arquibancada - Inteira - R$ 59,90</p>
+      <p>1x Arquibancada - Meia - R$ 29,95</p>
+    </div>
+  </div>
+
+  {/* Informações de pagamento */}
+  <div className="border rounded-md p-4 w-full md:w-1/2">
+    <h2 className="font-bold text-lg mb-2">Informações de pagamento</h2>
+    <form className="flex flex-col gap-4">
+      {/* Seleção do método de pagamento */}
+      <div>
+        <label className="block font-medium text-gray-700 mb-1 bg-white" >
+          Método de pagamento
+        </label>
+        <select
+          id="payment-method"
+          className="border rounded-md p-2 w-full bg-white"
+          defaultValue=""
+        >
+          <option value="" disabled >
+            Selecione um método de pagamento
+          </option>
+          <option value="credit-card">Cartão de Crédito</option>
+          <option value="pix">PIX</option>
+          <option value="boleto">Boleto Bancário</option>
+        </select>
+      </div>
+
+      {/* Campos para pagamento com cartão de crédito */}
+      <div>
+        <label className="block font-medium text-gray-700 mb-1" htmlFor="card-number">
+          Número do cartão
+        </label>
+        <input
+          id="card-number"
+          type="text"
+          className="border rounded-md p-2 w-full"
+          placeholder="0000 0000 0000 0000"
+        />
+      </div>
+      <div className="flex gap-4">
+        <div className="flex-grow">
+          <label className="block font-medium text-gray-700 mb-1" htmlFor="expiry-date">
+            Data de validade
+          </label>
+          <input
+            id="expiry-date"
+            type="text"
+            className="border rounded-md p-2 w-full"
+            placeholder="MM/AA"
+          />
+        </div>
+        <div>
+          <label className="block font-medium text-gray-700 mb-1" htmlFor="cvv">
+            CVV
+          </label>
+          <input
+            id="cvv"
+            type="text"
+            className="border rounded-md p-2 w-full"
+            placeholder="123"
+          />
+        </div>
+      </div>
+
+      {/* Nome do titular do cartão */}
+      <div>
+        <label className="block font-medium text-gray-700 mb-1" htmlFor="cardholder-name">
+          Nome do titular
+        </label>
+        <input
+          id="cardholder-name"
+          type="text"
+          className="border rounded-md p-2 w-full"
+          placeholder="Nome como aparece no cartão"
+        />
+      </div>
+    </form>
+  </div>
+</div>
     
           {/* Botão de confirmação */}
           <div className="flex justify-end gap-2">

@@ -67,9 +67,9 @@ export default function Event() {
         <div className="flex gap-8 justify-evenly h-40">
           <div className="w-1/3">
             <img
-              src=""
+              src="https://img.freepik.com/fotos-gratis/visao-traseira-da-multidao-de-fas-assistindo-performance-ao-vivo-no-concerto-de-musica-a-noite-copiar-espaco_637285-544.jpg?t=st=1733583255~exp=1733586855~hmac=b4bd4013e4484cf3a9990e57fd46b514faad9e9a80474066bf57d2238b75a1ce&w=1380"
               alt="Event"
-              className="rounded-md shadow-md w-full"
+              className="rounded-md shadow-md w-72"
             />
           </div>
           <div className="flex flex-col justify-start">
